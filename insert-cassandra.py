@@ -21,9 +21,9 @@ with open(csv_file_path, 'r', encoding='utf-8', errors='replace') as csvfile:
         session.execute("INSERT INTO autor (id_autor, nombre_autor) VALUES ({0}, '{1}')".format(id_autor, autor.replace("'", "''")))
 
         # Insertar libro
-        session.execute("INSERT INTO libro (isbn, titulo, anio_edicion) VALUES ({0}, '{1}', {2})".format(int(isbn), titulo.replace("'", "''"), int(anio_edicion)))
+        session.execute("INSERT INTO libro (isbn, titulo, anio_edicion) VALUES ('{0}', '{1}', {2})".format(str(isbn), titulo.replace("'", "''"), int(anio_edicion)))
 
         # Insertar relación autor-libro
-        session.execute("INSERT INTO autor_isbn (id_autor, isbn) VALUES ({0}, {1})".format(id_autor, int(isbn)))
+        session.execute("INSERT INTO autor_isbn (id_autor, isbn) VALUES ({0}, '{1}')".format(id_autor, str(isbn)))
 
 cluster.shutdown()
