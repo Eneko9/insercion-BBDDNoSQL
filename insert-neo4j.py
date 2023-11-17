@@ -3,7 +3,7 @@ import csv
 import uuid
 
 # Conexión a la base de datos Neo4j
-uri = "bolt://localhost:7687"  
+uri = "neo4j://localhost:7687"  
 username = "neo4j"  
 password = "master22"
 driver = GraphDatabase.driver(uri, auth=(username, password))
